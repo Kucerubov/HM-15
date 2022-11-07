@@ -1,0 +1,11 @@
+.styleUser {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    border: 6px solid black;
+    margin-bottom: 10px;
+}
+
+.styleUser img {
+    margin-right: 10px;
+}
