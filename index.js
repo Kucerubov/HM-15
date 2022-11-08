@@ -8,25 +8,25 @@ xhr.responseType = 'json'
 xhr.onload = () => {
     console.log(xhr.response);
     const res = xhr.response;
-    res.forEach((users) => genItem(users));
+    res.forEach((users) => renderItem(users));
 }
 xhr.send()
 
 
-function genItem (users) {
+function renderItem (users) {
     console.log(users.name);
     const user = document.createElement('ul');
-    const namePosition = document.createElement('div');
-    const nameItem = document.createElement('div');
-    const photoItem = document.createElement('img');
-    const positionItem = document.createElement('div');
+    const divForNamePosition = document.createElement('div');
+    const userName = document.createElement('div');
+    const userPhoto = document.createElement('img');
+    const userPosition = document.createElement('div');
     user.classList.add('styleUser');
-    photoItem.classList.add('src');
-    photoItem.setAttribute('src', `${users.photo}`)
-    nameItem.innerText = users.name;
-    positionItem.innerText = users.position;
-    namePosition.append(nameItem,positionItem);
-    user.append(photoItem);
-    user.append(namePosition);
-    document.querySelector('ul').append(user);
+    userPhoto.classList.add('src');
+    userPhoto.setAttribute('src', `${users.photo}`)
+    userName.innerText = users.name;
+    userPosition.innerText = users.position;
+    divForNamePosition.append(userName,userPosition);
+    user.append(userPhoto);
+    user.append(divForNamePosition);
+    document.querySelector('.list-users').append(user);
 }
